@@ -13,10 +13,10 @@
   </check>
 
   <check if="{{ !@list_cr }}">
-    <a class="allinks" href="{{@ALIASES.crs_list}}" title="CROTYpedia">voir tous les CRs &rsaquo;</a>
+    <a class="allinks" href=".{{@ALIASES.crs_list}}" title="CROTYpedia">voir tous les CRs &rsaquo;</a>
   </check>
   <check if="{{ @list_cr }}">
-    <a class="allinks" href="{{@ALIASES.crs_list}}" title="CROTYpedia">tous les autres CRs &rsaquo;</a>
+    <a class="allinks" href=".{{@ALIASES.crs_list}}" title="CROTYpedia">tous les autres CRs &rsaquo;</a>
   </check>
 
 </div><!-- #crotypedia -->
@@ -29,7 +29,7 @@
     <h2><a href="#stream">Le Stream de {{@PARAMS.name}}</a></h2>
 
     <check if="{{ !@list_stream }}">
-        <img src="/ui/images/daique.gif" alt="Pas de stream" class="nostream"/>
+        <img src="../../ui/images/daique.gif" alt="Pas de stream" class="nostream"/>
     </check>
     <check if="{{ @list_stream }}">
       <ul class="name">
@@ -42,10 +42,10 @@
   </check>
 
   <check if="{{ !@list_stream }}">
-    <a class="allinks" href="{{@ALIASES.streams_list}}" title="HFR.tv">voir tous les streams &rsaquo;</a>
+    <a class="allinks" href=".{{@ALIASES.streams_list}}" title="HFR.tv">voir tous les streams &rsaquo;</a>
   </check>
   <check if="{{ @list_stream }}">
-    <a class="allinks" href="{{@ALIASES.streams_list}}" title="HFR.tv">tous les autres streams &rsaquo;</a>
+    <a class="allinks" href=".{{@ALIASES.streams_list}}" title="HFR.tv">tous les autres streams &rsaquo;</a>
   </check>
 
 </div><!-- #hfrtv -->
