@@ -88,6 +88,7 @@ class Crontroller extends Controller {
 
 	public function gibbactuPostProcess()
 	{
+
 		$Actu = new Actu($this->db);
 
 		$NotProcessedActus = $Actu->find(array('processed = ?', 0));
@@ -143,7 +144,7 @@ class Crontroller extends Controller {
 			$divDate = $xpath->query('//div[@class="toolbar"]/div[@class="left"]');
 			$oldate = preg_replace("/[^0-9:-]+/", "", $divDate->item(0)->nodeValue);
 			$processActu['date_posted'] = date('Y-m-d H:i', strtotime($oldate));
-			//echo $crDatePosted.' ';
+			//echo $processActu['date_posted'].' ';
 
 			//echo $processActu['username']."\n";
 			//le contenu au même niveau que le smiley
@@ -236,8 +237,7 @@ class Crontroller extends Controller {
 			$processHTMLfinal = htmlentities(preg_replace('/style="[a-zA-Z0-9:;\.\s\(\)\-\,]*"/i', '', html_entity_decode($processHTMLfinal)));
 			$processHTMLfinal = htmlentities(preg_replace('/onload="[^\"]+"/i', 'onload="return;"', html_entity_decode($processHTMLfinal)));
 			$processHTMLfinal = htmlentities(preg_replace('/title="[^\"]+"/i', '', html_entity_decode($processHTMLfinal)));
-
-
+			
 			if (!$processHTMLfinal) {
 				echo "aucun contenu<br/><br/><br/>";
 				$NPA->active = 0;
@@ -259,6 +259,7 @@ class Crontroller extends Controller {
 
 			$NPA->content=$processHTMLfinal;
 			$NPA->active = 1;
+			$NPA->processed = 1;
 			$NPA->save();
 			echo "\n\n\n\n\n";
 

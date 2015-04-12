@@ -21,7 +21,7 @@ class ActuController extends Controller {
     {
 	    $pageNum = $this->f3->get('PARAMS.page');
 
-		if($pageNum == 1 || $pageNum == 0 || !is_numeric($pageNum)) { //On vérifie que le numéro de page soit valide
+		if($pageNum == 0 || !is_numeric($pageNum)) { //On vérifie que le numéro de page soit valide
 			$this->f3->reroute('@actus_list');
 		}
 
